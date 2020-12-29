@@ -4,22 +4,24 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 /**
  * 
  */
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
+
+
+
 class bcl_clientTransaction
 {
-	function __construct()
-	{
-		#..
-	}
-
 	public function create_request($url, $post_fields, $headers)
 	{
 		$curl = curl_init($url);
-		// curl_setopt($curl, , CURLOPT_URL, $url);
+		// curl_setopt($curl, CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
 		if(!empty($post_fields)) {
 			curl_setopt($curl, CURLOPT_POST, 1);
 			curl_setopt($curl, CURLOPT_POSTFIELDS, $post_fields);
 		}
+		
 		if(!empty($headers)) {
 			curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 		}
