@@ -13,8 +13,8 @@ class bcl_clientTransaction
 
 	public function create_request($url, $post_fields, $headers)
 	{
-		//$curl = curl_init($url);
-		curl_setopt($curl, , CURLOPT_URL, $url);
+		$curl = curl_init($url);
+		// curl_setopt($curl, , CURLOPT_URL, $url);
 		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 		if(!empty($post_fields)) {
 			curl_setopt($curl, CURLOPT_POST, 1);
